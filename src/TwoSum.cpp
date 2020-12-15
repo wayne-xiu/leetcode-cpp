@@ -1,5 +1,3 @@
-// CodeDaily.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,17 +6,26 @@
 
 using namespace std;
 
-class Solution {
-    public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+/* Problem link:
+    https://leetcode.com/problems/two-sum/
+*/
+
+class Solution
+{
+public:
+    vector<int> twoSum(vector<int> &nums, int target)
+    {
         unordered_map<int, int> dic;
         vector<int> res;
-        for (auto i = 0; i < nums.size(); ++i) {
+        for (auto i = 0; i < nums.size(); ++i)
+        {
             dic[target - nums[i]] = i;
         }
-        for (auto i = 0; i < nums.size(); ++i) {
+        for (auto i = 0; i < nums.size(); ++i)
+        {
             auto index = dic.find(nums[i]);
-            if (index != dic.end() && index->second != i) {
+            if (index != dic.end() && index->second != i)
+            {
                 return {i, index->second};
             }
         }
@@ -26,15 +33,17 @@ class Solution {
     }
 };
 
-int main() {
+int main()
+{
 
     Solution solution;
-    vector<int> nums{2,7,11,15};
+    vector<int> nums{2, 7, 11, 15};
     int target = 9;
 
     auto res = solution.twoSum(nums, target);
 
-    for (auto& i: res) {
+    for (auto &i : res)
+    {
         cout << i << " ";
     }
 
